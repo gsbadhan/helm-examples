@@ -1,0 +1,7 @@
+
+# Build Nginx image
+docker build -t my-nginx:latest .
+docker login
+docker tag my-nginx:latest mydockerhubusername/my-nginx:latest
+docker push mydockerhubusername/my-nginx:latest
+

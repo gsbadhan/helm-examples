@@ -1,4 +1,4 @@
-# helm-examples
+# Helm examples
 
 ### For local setup
 1. install minikube

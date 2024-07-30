@@ -1,5 +1,0 @@
-# Build Nginx image
-docker build -t mydockerhubusername/my-nginx:latest .
-
-# Push image to Docker Hub
-docker push mydockerhubusername/my-nginx:latest
