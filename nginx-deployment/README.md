@@ -10,6 +10,8 @@
 1. helm install nginx helm/nginx
 2. helm list
 3. helm uninstall nginx
+4. helm upgrade nginx helm/nginx
+5. helm install --debug --dry-run  nginx helm/nginx
 
 ### Build Nginx image
 1. docker build -t my-nginx:latest .

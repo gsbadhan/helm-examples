@@ -14,10 +14,9 @@ spec:
       labels:
         {{- include "nginx.selectorLabels" . | nindent 8 }}
     spec:
-      #serviceAccountName: my-service-account
       containers:
         - name: nginx
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 80
+            - containerPort: {{ .Values.service.port }}
