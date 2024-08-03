@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Values.cronJob.jobName }}
+spec:
+  schedule: {{ .Values.cronJob.schedule | quote }}
+  successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.cronJob.failedJobsHistoryLimit }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: curl-job
+              image: "{{ .Values.cronJob.image.repository }}:{{ .Values.cronJob.image.tag }}"
+              imagePullPolicy: {{ .Values.cronJob.image.pullPolicy }}
+              command: ["/bin/sh"]
+              args:
+                - "-c"
+                - >
+                  curl -X POST {{ .Values.cronJob.apiUrl }}
+          restartPolicy: OnFailure
+            

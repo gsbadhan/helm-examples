@@ -1,0 +1,10 @@
+cronJob:
+  schedule: "*/2 * * * *"
+  jobName: "my-rest-api-job"
+  image:
+    repository: curlimages/curl
+    tag: latest
+    pullPolicy: IfNotPresent
+  apiUrl: "http://www.google.com"
+  successfulJobsHistoryLimit: 1 # No successful jobs should be kept
+  failedJobsHistoryLimit: 1 # No failed jobs should be kept
